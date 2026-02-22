@@ -1,0 +1,73 @@
+cabal-version:      2.4
+name:               testing
+version:            0.1.0.0
+build-type:         Simple
+
+library
+  exposed-modules:
+      Numeri
+      Liste
+      Matrici
+      QuadTrees
+      MatriceMedianteQuadTrees
+      AlberiGenerici
+      AlberiBinariDiRicerca
+  hs-source-dirs:      src
+  build-depends:       base >=4.14 && <5
+  default-language:    Haskell2010
+
+test-suite testing-numeri
+  type:              exitcode-stdio-1.0
+  main-is:           TestingNumeriMain.hs
+  hs-source-dirs:    test
+  other-modules:     NumeriSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010
+
+test-suite testing-liste
+  type:              exitcode-stdio-1.0
+  main-is:           TestingListeMain.hs
+  hs-source-dirs:    test
+  other-modules:     ListeSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010
+
+test-suite testing-matrici
+  type:              exitcode-stdio-1.0
+  main-is:           TestingMatriciMain.hs
+  hs-source-dirs:    test
+  other-modules:     MatriciSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010
+
+test-suite testing-quadtrees
+  type:              exitcode-stdio-1.0
+  main-is:           TestingQuadTreesMain.hs
+  hs-source-dirs:    test
+  other-modules:     QuadTreesSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010
+
+test-suite testing-matrice-qt
+  type:              exitcode-stdio-1.0
+  main-is:           TestingMatriceQuadTreesMain.hs
+  hs-source-dirs:    test
+  other-modules:     MatriceMedianteQuadTreesSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010
+
+test-suite testing-alberi-generici
+  type:              exitcode-stdio-1.0
+  main-is:           TestingAlberiGenericiMain.hs
+  hs-source-dirs:    test
+  other-modules:     AlberiGenericiSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010
+
+test-suite testing-alberi-bst
+  type:              exitcode-stdio-1.0
+  main-is:           TestingAlberiDiRicercaMain.hs
+  hs-source-dirs:    test
+  other-modules:     AlberiBinariDiRicercaSpec
+  build-depends:     base, testing, hspec, QuickCheck
+  default-language:  Haskell2010

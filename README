@@ -1,0 +1,10 @@
+cabal clean
+cabal build
+
+cabal test test:testing-numeri
+cabal test test:testing-liste
+cabal test test:testing-matrici
+cabal test test:testing-quadtrees
+cabal test test:testing-matrice-qt
+cabal test test:testing-alberi-generici
+cabal test test:testing-alberi-bst
