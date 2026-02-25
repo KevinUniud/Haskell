@@ -142,7 +142,7 @@ colsums:
     Esempio:
         [[1,2,3],
         [4,5,6]]
-    -> [5,7,9]
+    ->  [5,7,9]
 -}
 
 colsums :: Num a => Matrice a -> [a]
@@ -169,19 +169,20 @@ a_{n1} & \dots & a_{nm}
 
 {-
 sums:
-  Combina due vettori (liste) componente-per-componente, scegliendo se
-  aggiungere o sottrarre il secondo vettore in base al booleano `neg`.
+    Combina due vettori (liste) componente-per-componente, scegliendo se
+    aggiungere o sottrarre il secondo vettore in base al booleano `neg`.
 
-  Parametri:
-    - primo vettore (accumulatore corrente)
-    - secondo vettore (riga da combinare)
-    - neg:
-        * True  -> accumulatore + ( - riga )  cioè accumulatore - riga
-        * False -> accumulatore + riga
+    Parametri:
+        - primo vettore (accumulatore corrente)
+        - secondo vettore (riga da combinare)
+        - neg:
+            * True  -> accumulatore + ( - riga )  cioè accumulatore - riga
+            * False -> accumulatore + riga
 
-  I casi base con lista vuota interrompono quando termina uno dei due vettori.
-  (In una matrice ben formata le righe hanno stessa lunghezza, quindi finiscono insieme.)
+    I casi base con lista vuota interrompono quando termina uno dei due vettori.
+    (In una matrice ben formata le righe hanno stessa lunghezza, quindi finiscono insieme.)
 -}
+
 sums :: Num a => [a] -> [a] -> Bool -> [a]
 sums [] _ _ = []
 sums _ [] _ = []
@@ -248,7 +249,7 @@ Si scriva una funzione colMinMax che, data una matrice implementata come liste d
 
 {-
 findMin:
-  Calcola il minimo di una lista non vuota in modo ricorsivo.
+    Calcola il minimo di una lista non vuota in modo ricorsivo.
 -}
 findMin :: (Num a, Ord a) => [a] -> a
 findMin [x] =
