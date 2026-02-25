@@ -60,10 +60,10 @@ matrixSupp:
             inizialmente vale -1 (non ancora fissato)
 
     Logica:
-        - Se la lista è vuota → restituisce (r, c)
-        - Se c == -1 → si fissa c al numero di colonne della prima riga
-        - Se la riga corrente ha lo stesso numero di colonne di c → continua
-        - Altrimenti → matrice mal formata, restituisce (-1, -1)
+        - Se la lista è vuota -> restituisce (r, c)
+        - Se c == -1 -> si fissa c al numero di colonne della prima riga
+        - Se la riga corrente ha lo stesso numero di colonne di c -> continua
+        - Altrimenti -> matrice mal formata, restituisce (-1, -1)
 -}
 
 matrixSupp :: (Eq a, Num a) => Matrice a -> a -> a -> (a, a)
@@ -80,7 +80,7 @@ matrixSupp (x:xs) r c
         matrixSupp xs r c
 
     | otherwise =
-        -- Riga con numero di colonne diverso → matrice non ben formata
+        -- Riga con numero di colonne diverso -> matrice non ben formata
         (-1, -1)
 
 {-
@@ -89,12 +89,12 @@ matrixDim:
     se la matrice è ben formata.
 
     Caso []:
-        Matrice vuota → dimensione (0,0).
+        Matrice vuota -> dimensione (0,0).
 
     Caso generale:
         - Calcola il numero di righe con checkRows
         - Verifica la coerenza delle colonne con matrixSupp
-        - Se non coerente → (-1,-1)
+        - Se non coerente -> (-1,-1)
 -}
 
 matrixDim :: (Eq a, Num a) => Matrice a -> (a, a)
@@ -142,7 +142,7 @@ colsums:
     Esempio:
         [[1,2,3],
         [4,5,6]]
-    → [5,7,9]
+    -> [5,7,9]
 -}
 
 colsums :: Num a => Matrice a -> [a]
@@ -415,7 +415,7 @@ checkRowZeroUpTo:
         - pos   = indice corrente di colonna
         - limit = indice della diagonale (tutti gli indici < limit devono essere 0)
 
-    Se pos >= limit → non ci sono più vincoli.
+    Se pos >= limit -> non ci sono più vincoli.
 -}
 checkRowZeroUpTo :: (Num a, Ord a) => [a] -> a -> a -> Bool
 checkRowZeroUpTo [] _ _ =
@@ -447,7 +447,7 @@ uppertriangularSupp:
         - lista delle righe
         - n   = dimensione della matrice
         - row = indice della riga corrente
-        - col = parametro non necessario per il controllo (manteniuto per coerenza)
+        - col = parametro non necessario per il controllo (mantenuto per coerenza)
 
     Per ogni riga:
         - si controlla che gli elementi prima della diagonale siano 0
@@ -519,7 +519,7 @@ sumRowExceptDiag:
         - diagonal = indice della colonna corrispondente alla diagonale (riga corrente)
 
     Per ogni elemento:
-        - se è sulla diagonale → viene ignorato
+        - se è sulla diagonale -> viene ignorato
         - altrimenti si aggiunge il suo valore assoluto
 -}
 sumRowExceptDiag :: (Num a, Ord a) => [a] -> Int -> Int -> a
@@ -596,13 +596,13 @@ traspose:
 Casi:
 
 1) traspose [] mxs
-    Riga vuota → nessuna modifica.
+    Riga vuota -> nessuna modifica.
 
 2) traspose xs []
     Se l’accumulatore è vuoto, significa che stiamo inserendo
     la prima riga della matrice originale.
     Ogni elemento diventa una nuova riga singola:
-        [a,b,c] → [[a],[b],[c]]
+        [a,b,c] -> [[a],[b],[c]]
 
 3) traspose (x:xs) (mx:mxs)
     x viene aggiunto in testa alla riga mx (colonna corrente),

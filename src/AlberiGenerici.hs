@@ -670,8 +670,8 @@ Si scriva una funzione frontier che restituisce la frontiera di un albero (la li
 -- - per Void si restituisce []
 -- - per Node x cs, si ricevono in childs le frontiere dei figli
 --   (una lista di liste)
---   * se almeno una è non vuota, il nodo non è foglia → si concatena
---   * se sono tutte vuote, il nodo è foglia → si restituisce [x]
+--   * se almeno una è non vuota, il nodo non è foglia -> si concatena
+--   * se sono tutte vuote, il nodo è foglia -> si restituisce [x]
 
 frontier :: Tree a -> [a]
 frontier =

@@ -28,7 +28,7 @@ Scrivere una funzione che data una lista ne costruisce una rimuovendo gli elemen
 --   2) un contatore k che rappresenta la posizione corrente (a partire da 1)
 removePairsSupp :: Integral a => [a] -> a -> [a]
 
--- Caso base: lista vuota → restituisce lista vuota.
+-- Caso base: lista vuota -> restituisce lista vuota.
 removePairsSupp [] _ = []
 
 removePairsSupp (x:xs) k =
@@ -57,7 +57,7 @@ Scrivere una funzione che calcola la somma degli elementi di posizione dispari d
 --   2) un contatore k che rappresenta la posizione corrente (a partire da 1)
 sumOddsSupp :: Integral a => [a] -> a -> a
 
--- Caso base: lista vuota → la somma è 0.
+-- Caso base: lista vuota -> la somma è 0.
 sumOddsSupp [] _ = 0
 
 sumOddsSupp (x:xs) k =
@@ -139,10 +139,10 @@ Scrivere una funzione che costruisce, a partire da una lista di numeri interi, u
 --   b è la somma di tutti gli elementi successivi
 --
 -- Esempio:
--- [1,2,3] → [(1,5),(2,3),(3,0)]
+-- [1,2,3] -> [(1,5),(2,3),(3,0)]
 fun5 :: Num a => [a] -> [(a,a)]
 
--- Caso base: lista vuota → nessuna coppia.
+-- Caso base: lista vuota -> nessuna coppia.
 fun5 [] = []
 
 fun5 (x:xs) =
@@ -167,7 +167,7 @@ Farlo con foldr o foldl è difficile.
 --   b è la somma di tutti gli elementi precedenti
 --
 -- Esempio:
--- [1,2,3,4] → [(1,0),(2,1),(3,3),(4,6)]
+-- [1,2,3,4] -> [(1,0),(2,1),(3,3),(4,6)]
 --
 -- Si utilizza un accumulatore che tiene traccia
 -- della somma degli elementi già visitati.
@@ -193,12 +193,6 @@ A titolo di esempio, shiftToZero [5,4,2,6] =⇒ [3,2,0,4].
 La funzione non deve visitare gli elementi della lista più di una volta (si sfrutti la laziness).
 -}
 
--- shiftToZero costruisce una nuova lista in cui
--- ogni elemento è diminuito del valore minimo della lista originale.
---
--- Esempio:
--- shiftToZero [5,4,2,6] = [3,2,0,4]
---
 -- minimum xs calcola il valore minimo.
 -- Grazie alla laziness di Haskell, minVal viene condiviso:
 -- la lista non viene riesaminata esplicitamente nel codice,

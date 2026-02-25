@@ -44,7 +44,7 @@ Scrivere una funzione che calcola la somma dei valori di un albero a valori somm
 -- È polimorfa su qualsiasi tipo appartenente alla classe Num.
 sumTree :: Num a => BST a -> a
 
--- Caso base: albero vuoto → somma pari a 0.
+-- Caso base: albero vuoto -> somma pari a 0.
 sumTree Void = 0
 
 -- Caso ricorsivo:
@@ -66,7 +66,7 @@ Scrivere una funzione che calcola la somma dei valori dispari di un albero a val
 -- poiché la funzione odd è definita per tipi integrali.
 sumOddTree :: Integral a => BST a -> a
 
--- Caso base: albero vuoto → somma pari a 0.
+-- Caso base: albero vuoto -> somma pari a 0.
 sumOddTree Void = 0
 
 -- Caso ricorsivo:
@@ -92,7 +92,7 @@ Si scriva un predicato samesums che presa una lista di alberi [t1 , ..., tn ] de
 
 samesums :: (Num a, Eq a) => [BST a] -> Bool
 
--- Lista vuota: non ci sono controesempi → True.
+-- Lista vuota: non ci sono controesempi -> True.
 samesums [] = True
 
 -- Lista con un solo albero: le somme coincidono trivialmente.
@@ -121,11 +121,11 @@ Scrivere un predicato bstElem (infisso magari) per determinare se un valore è p
 
 bstElem :: Ord a => a -> BST a -> Bool
 
--- Caso base: albero vuoto → elemento non presente.
+-- Caso base: albero vuoto -> elemento non presente.
 bstElem _ Void = False
 
 bstElem x (Node v l r)
-    -- Se il valore coincide con quello del nodo → trovato.
+    -- Se il valore coincide con quello del nodo -> trovato.
     | x == v = True
 
     -- Se x è minore, si cerca solo nel sottoalbero sinistro.
@@ -173,7 +173,7 @@ Ci si assicuri di scrivere una funzione lineare.
 
 -- bst2List restituisce la lista ordinata degli elementi di un BST.
 -- Si utilizza una visita in-order:
---   sinistra → nodo → destra
+--   sinistra -> nodo -> destra
 
 bst2List :: BST a -> [a]
 bst2List t = bst2ListAcc t []
@@ -213,7 +213,7 @@ Si scriva una funzione filtertree p t che costruisce una lista (ordinata) di tut
 -- filtertree costruisce la lista ordinata degli elementi
 -- di un BST che soddisfano il predicato p.
 --
--- Si utilizza una visita in-order (sinistra → nodo → destra)
+-- Si utilizza una visita in-order (sinistra -> nodo -> destra)
 -- per mantenere l’ordinamento.
 -- Per evitare l’uso ripetuto di (++), si usa un accumulatore.
 
@@ -246,7 +246,7 @@ Si scelga di attribuire all’albero vuoto 0 o -1 a seconda delle preferenze.
 --   1 + max(-1, -1) = 0
 annotateTree :: BST a -> (BST (a, Int), Int)
 
--- Caso base: albero vuoto → albero vuoto annotato e altezza -1.
+-- Caso base: albero vuoto -> albero vuoto annotato e altezza -1.
 annotateTree Void = (Void, -1)
 
 annotateTree (Node v l r) =
@@ -344,7 +344,7 @@ wbstHeight (WNode _ h _ _) = h
 -- (già memorizzate) dei due figli.
 insertWBST :: Ord a => WBST a -> a -> WBST a
 
--- Caso base: inserimento in albero vuoto → si crea una foglia di altezza 0.
+-- Caso base: inserimento in albero vuoto -> si crea una foglia di altezza 0.
 insertWBST WVoid x = WNode x 0 WVoid WVoid
 
 insertWBST (WNode v h l r) x
@@ -381,7 +381,7 @@ Node (4,Just 1) Void (Node (7,Nothing) (Node (5,Just 2) Void Void) Void).
 --   (valoreOriginale, Just(diffRispettoAlSuccessivo)) oppure Nothing se non esiste successivo.
 --
 -- Per calcolare il “valore successivo” (in-order), si fa una visita in-order 
--- inversa (destra → nodo → sinistra), mantenendo come stato il valore visitato 
+-- inversa (destra -> nodo -> sinistra), mantenendo come stato il valore visitato 
 -- “subito prima” in questa visita, che corrisponde al successivo (più grande) 
 -- nell’ordinamento normale.
 
@@ -390,7 +390,7 @@ diff2next t = fst (go t Nothing)
     where
         -- go t next:
         --   next è il valore successivo (più grande) già noto per i nodi che stiamo per visitare
-        --   (cioè l’ultimo valore visto nella visita destra→nodo→sinistra).
+        --   (cioè l’ultimo valore visto nella visita destra->nodo->sinistra).
         --
         -- Restituisce:
         --   1) l’albero annotato
@@ -452,10 +452,10 @@ levelOrder t = bfs (enqueue t ([], []))
         bfs :: ([BST a], [BST a]) -> [a]
         bfs q =
             case dequeue q of
-                -- Coda vuota → fine visita.
+                -- Coda vuota -> fine visita.
                 Nothing -> []
 
-                -- Nodo vuoto → si ignora.
+                -- Nodo vuoto -> si ignora.
                 Just (Void, q') ->
                     bfs q'
 
@@ -736,7 +736,7 @@ data RBT a = RVoid | RNode a Color (RBT a) (RBT a)
 -- 1) Proprietà BST (qui: sinistra <= x, destra > x)
 -- 2) La radice è Black (se non vuota)
 -- 3) Nessun nodo Red ha figli Red (equivalente: ogni Red ha genitore Black)
--- 4) Tutti i cammini radice→foglia hanno lo stesso numero di nodi Black (black-height)
+-- 4) Tutti i cammini radice->foglia hanno lo stesso numero di nodi Black (black-height)
 --
 -- Implementazione lineare:
 -- in un’unica visita calcola (ok, min, max, blackHeight, rootColor)
@@ -873,7 +873,7 @@ Si riscriva la funzione diff2next dell’Esercizio 12 usando opportunamente fold
 --   2) il nuovo valore “successivo” da passare al padre (cioè il massimo del sottoalbero).
 --
 -- Per ottenere la differenza rispetto al successivo in-order,
--- si visita logicamente in ordine inverso (destra → nodo → sinistra).
+-- si visita logicamente in ordine inverso (destra -> nodo -> sinistra).
 -- Con fold (che fornisce i risultati dei due sottoalberi), si ottiene
 -- combinando prima rt (destra), poi il nodo, poi lt (sinistra).
 

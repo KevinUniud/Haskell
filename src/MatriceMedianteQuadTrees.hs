@@ -845,8 +845,8 @@ colAltSumsQT:
 
         s = x * (1 - 1 + 1 - 1 + ...)
 
-    Se il numero di righe h = 2^n è pari → la somma alternata vale 0.
-    Se fosse dispari → varrebbe x (ma per n>0, 2^n è sempre pari).
+    Se il numero di righe h = 2^n è pari -> la somma alternata vale 0.
+    Se fosse dispari -> varrebbe x (ma per n>0, 2^n è sempre pari).
 
     Si replica il valore s per tutte le colonne.
 
@@ -863,8 +863,8 @@ Caso Q a b c d:
     Se è pari, il segno riparte positivo nel blocco inferiore.
 
     Quindi:
-        - se topRows è dispari → si combinano con sottrazione
-        - se topRows è pari   → si combinano con somma
+        - se topRows è dispari -> si combinano con sottrazione
+        - se topRows è pari   -> si combinano con somma
 
     Risultato finale: left ++ right.
 -}
