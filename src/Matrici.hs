@@ -540,7 +540,6 @@ sumRowExceptDiag (x:xs) pos diagonal
 checkConvergent:
     Verifica ricorsivamente che ogni riga soddisfi la condizione
     di convergenza con raggio r:
-
         | somma elementi fuori diagonale | < r
 
     Poiché si sta già sommando il valore assoluto degli elementi,
@@ -638,8 +637,6 @@ isSymmetric:
     Implementazione:
         - si calcola la trasposta della matrice
         - si confronta con la matrice originale usando (==)
-
-    Si assume che la matrice sia quadrata come richiesto dall’esercizio.
 -}
 
 isSymmetric :: (Eq a, Num a) => Matrice a -> Bool
@@ -689,8 +686,6 @@ matrixProduct:
 -}
 matrixProduct :: (Num a, Eq a) => Matrice a -> Matrice a -> Matrice a
 matrixProduct m1 m2 =
-    [ [ dotProduct row col
-        | col <- trasposta m2
-        ]
+    [ [ dotProduct row col | col <- trasposta m2 ]
         | row <- m1
     ]

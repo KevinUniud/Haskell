@@ -81,7 +81,6 @@ treefold f z t =
             f x (map (treefold f z) cs)
 
 -- Variante che produce terne come risultato.
--- Non è una "fold diversa": è la stessa idea, specializzata al caso b = (b,c,d).
 -- Serve quando si vuole calcolare più informazioni in un solo passaggio.
 treefoldTuple :: (a -> [(b,c,d)] -> (b,c,d)) -> (b,c,d) -> Tree a -> (b,c,d)
 treefoldTuple f z t =
@@ -508,9 +507,6 @@ Si scriva una funzione diameter che determina il diametro di un albero.
 Il diametro di un albero è la lunghezza del massimo cammino fra due nodi, indipendentemente dall’orientamento degli archi.
 -}
 
--- diameter calcola il diametro di un albero generico:
--- la lunghezza (numero di archi) del massimo cammino tra due nodi qualsiasi.
---
 -- Implementazione lineare con treefold:
 -- per ogni nodo calcoliamo contemporaneamente:
 --   (diametroDelSottoalbero, altezzaDelSottoalbero)

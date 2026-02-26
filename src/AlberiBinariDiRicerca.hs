@@ -210,9 +210,6 @@ Esercizio 8
 Si scriva una funzione filtertree p t che costruisce una lista (ordinata) di tutti gli elementi dell’albero t che soddisfano il predicato p.
 -}
 
--- filtertree costruisce la lista ordinata degli elementi
--- di un BST che soddisfano il predicato p.
---
 -- Si utilizza una visita in-order (sinistra -> nodo -> destra)
 -- per mantenere l’ordinamento.
 -- Per evitare l’uso ripetuto di (++), si usa un accumulatore.
@@ -273,10 +270,6 @@ Esercizio 10
 Si scriva un predicato (funzione a valori booleani) almostBalanced per determinare se un albero binario ha la seguente proprietà: per ogni nodo le altezze dei figli destro e sinistro differiscono al massimo di 1.
 -}
 
--- almostBalanced verifica se un albero binario soddisfa la proprietà:
--- per ogni nodo, le altezze dei sottoalberi sinistro e destro
--- differiscono al massimo di 1.
---
 -- La funzione è lineare (O(n)) perché ogni nodo viene visitato una sola volta.
 -- Si calcolano contemporaneamente:
 --   1) se il sottoalbero è almost balanced
@@ -922,9 +915,6 @@ Si scriva una funzione limitedVisit che dato un BST e due valori x, y costruisce
 Garantire che let d=d in limitedVisit 3 7 (Node 7 (Node 2 (Node d Void Void) Void) (Node d Void Void)) termini non è immediato.
 -}
 
--- limitedVisit restituisce la lista ordinata degli elementi del BST
--- compresi nell’intervallo [x, y].
---
 -- Sfrutta la proprietà dei BST per evitare visite inutili:
 -- - se v < x, tutto il sottoalbero sinistro contiene valori <= v < x,
 --   quindi può essere scartato; si visita solo il destro.
